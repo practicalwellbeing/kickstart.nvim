@@ -7,14 +7,14 @@
 - Recently opened files SPC f r
 - Open project SPC p p
 - Jump to bookmark (?) SPC RET
-- Open configurages SPC f p
+- Open configuration SPC f p
 - Open documentation SPC h d h
 
 ## Main which-key screen
 
 *All prefixed by SPC*
 
-- RET - jump to bookmakr
+- RET - jump to bookmark
 - SPC - find file in project
 - TAB - workspace
 - '   - resume last search

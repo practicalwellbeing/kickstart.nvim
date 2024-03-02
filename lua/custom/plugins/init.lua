@@ -9,34 +9,38 @@ return {
   --   'navarasu/onedark.nvim',
   --   require('onedark').load(),
   -- },
+
   {
-    'preservim/vim-markdown',
-    ft = 'markdown',
-    config = function()
-      vim.g.vim_markdown_folding_disabled = 1
-      vim.g.vim_markdown_no_default_key_mappings = 0
-      vim.g.vim_markdown_conceal_code_blocks = 0
-      vim.g.vim_markdown_math = 1
-      vim.g.tex_conceal = 'abmgs'
-      vim.g.vim_markdown_conceal = 2 -- 1 to disable
-      vim.g.vim_markdown_toc_autofit = 1
-      vim.g.vim_markdown_follow_anchor = 0
-      vim.g.vim_markdown_toml_frontmatter = 1
-      vim.g.vim_markdown_strikethrough = 1
-    end,
+    'natecraddock/sessions.nvim',
+
+    -- keys = {
+    --   { '<leader>qs', '<cmd>SessionSave<cr>', desc = 'Save session' },
+    --   { '<leader>ql', '<cmd>SessionLoad<cr>', desc = 'Save session' },
+    --   { '<leader>qx', '<cmd>SessionStop<cr>', desc = 'Save session' },
+    -- },
+    --
+    -- require('sessions').setup(),
   },
 
   {
-    'folke/persistence.nvim',
-    event = 'BufReadPre',
-    opts = { options = vim.opt.sessionoptions:get() },
-  -- stylua: ignore
-  keys = {
-      { "<leader>qs", function() require("persistence").load() end, desc = "Restore Session" },
-      { "<leader>ql", function() require("persistence").load({ last = true }) end, desc = "Restore Last Session" },
-      { "<leader>qd", function() require("persistence").stop() end, desc = "Don't Save Current Session" },
-    },
+    --    'natecraddock/workspaces',
+
+    --    keys = {    },
+
+    --    require('sessions').setup(),
   },
+
+  -- {
+  --   'folke/persistence.nvim',
+  --   event = 'BufReadPre',
+  --   opts = { options = vim.opt.sessionoptions:get() },
+  -- -- stylua: ignore
+  -- keys = {
+  --     { "<leader>qs", function() require("persistence").load() end, desc = "Restore Session" },
+  --     { "<leader>ql", function() require("persistence").load({ last = true }) end, desc = "Restore Last Session" },
+  --     { "<leader>qd", function() require("persistence").stop() end, desc = "Don't Save Current Session" },
+  --   },
+  -- },
 
   {
     'folke/noice.nvim',

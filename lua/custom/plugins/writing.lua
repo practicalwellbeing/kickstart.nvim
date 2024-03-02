@@ -8,6 +8,24 @@ return {
     -- need to add some keymaps here
   },
 
+  -- {
+  --   -- https://github.com/preservim/vim-markdown
+  --   'preservim/vim-markdown',
+  --   ft = 'markdown',
+  --   config = function()
+  --     vim.g.vim_markdown_folding_disabled = 1
+  --     vim.g.vim_markdown_no_default_key_mappings = 0
+  --     vim.g.vim_markdown_conceal_code_blocks = 0
+  --     vim.g.vim_markdown_math = 1
+  --     vim.g.tex_conceal = 'abmgs'
+  --     vim.g.vim_markdown_conceal = 2 -- 1 to disable
+  --     vim.g.vim_markdown_toc_autofit = 1
+  --     vim.g.vim_markdown_follow_anchor = 0
+  --     vim.g.vim_markdown_toml_frontmatter = 1
+  --     vim.g.vim_markdown_strikethrough = 1
+  --   end,
+  -- },
+
   -- soft pencil for word wrapping etc
   {
     'preservim/vim-pencil',
