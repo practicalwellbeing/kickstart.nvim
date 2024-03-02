@@ -3,6 +3,3 @@
 --
 -- See the kickstart.nvim README for more information
 
-return {
-  vim.keymap.set('n', '<leader>F', '<cmd>Neotree toggle<cr>'),
-}
