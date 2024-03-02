@@ -18,7 +18,7 @@ return {
     end,
     keys = {
       {
-        '<leader>uP',
+        '<leader>tp',
         '<cmd>TogglePencil<cr>',
         desc = 'Toggle SoftPencil',
       },
@@ -66,7 +66,7 @@ return {
 
     keys = {
       {
-        '<leader>uz',
+        '<leader>tz',
         '<cmd>ZenMode<cr>',
         desc = 'Toggle ZenMode',
       },

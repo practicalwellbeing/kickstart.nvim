@@ -280,6 +280,11 @@ require('lazy').setup {
         ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
         ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
         ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
+        ['<leader>b'] = { name = '[B]uffer', _ = 'which_key_ignore' },
+        ['<leader>f'] = { name = '[F]ile', _ = 'which_key_ignore' },
+        ['<leader>p'] = { name = '[P]roject', _ = 'which_key_ignore' },
+        ['<leader>q'] = { name = '[Q]uit/sesson', _ = 'which_key_ignore' },
+        ['<leader>t'] = { name = '[T]oggles', _ = 'which_key_ignore' },
       }
     end,
   },
@@ -372,9 +377,26 @@ require('lazy').setup {
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
-      vim.keymap.set('n', '<leader>C', function()
+
+      -- NOTE: AH: New additions
+
+      -- Start page
+      vim.keymap.set('n', '<leader>.', builtin.find_files, { desc = 'Find files' })
+      vim.keymap.set('n', '<leader>,', builtin.buffers, { desc = 'Switch buffer' })
+      vim.keymap.set('n', '<leader>!', builtin.builtin, { desc = 'Telescope' })
+      vim.keymap.set('n', '<leader>e', '<cmd>Neotree toggle<cr>', { desc = 'Toggle Neotree' })
+
+      -- Buffers
+
+      -- Files
+      vim.keymap.set('n', '<leader>fr', builtin.oldfiles, { desc = 'Recent files' })
+      -- Shortcut for searching your neovim configuration filesV
+      vim.keymap.set('n', '<leader>fc', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
-      end, { desc = '[C]onfig' })
+      end, { desc = 'Configuration files' })
+
+      -- Toggles
+      vim.keymap.set('n', '<leader>te', '<cmd>Neotree toggle<cr>', { desc = 'Toggle Neotree' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
@@ -393,11 +415,6 @@ require('lazy').setup {
           prompt_title = 'Live Grep in Open Files',
         }
       end, { desc = '[S]earch [/] in Open Files' })
-
-      -- Shortcut for searching your neovim configuration files
-      vim.keymap.set('n', '<leader>sn', function()
-        builtin.find_files { cwd = vim.fn.stdpath 'config' }
-      end, { desc = '[S]earch [N]eovim files' })
     end,
   },
 
