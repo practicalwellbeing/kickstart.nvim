@@ -4,43 +4,34 @@
 -- See the kickstart.nvim README for more information
 
 return {
-
-  -- {
-  --   'navarasu/onedark.nvim',
-  --   require('onedark').load(),
-  -- },
-
   {
-    'natecraddock/sessions.nvim',
+    'lewis6991/gitsigns.nvim',
 
-    -- keys = {
-    --   { '<leader>qs', '<cmd>SessionSave<cr>', desc = 'Save session' },
-    --   { '<leader>ql', '<cmd>SessionLoad<cr>', desc = 'Save session' },
-    --   { '<leader>qx', '<cmd>SessionStop<cr>', desc = 'Save session' },
-    -- },
-    --
-    -- require('sessions').setup(),
+    config = function()
+      require('gitsigns').setup()
+    end,
   },
 
   {
-    --    'natecraddock/workspaces',
-
-    --    keys = {    },
-
-    --    require('sessions').setup(),
+    'coffebar/neovim-project',
+    opts = {
+      projects = { -- define project roots
+        '~/git/*',
+        '~/.config/*',
+      },
+    },
+    init = function()
+      -- enable saving the state of plugins in the session
+      vim.opt.sessionoptions:append 'globals' -- save global variables that start with an uppercase letter and contain at least one lowercase letter.
+    end,
+    dependencies = {
+      { 'nvim-lua/plenary.nvim' },
+      { 'nvim-telescope/telescope.nvim', tag = '0.1.4' },
+      { 'Shatur/neovim-session-manager' },
+    },
+    lazy = false,
+    priority = 100,
   },
-
-  -- {
-  --   'folke/persistence.nvim',
-  --   event = 'BufReadPre',
-  --   opts = { options = vim.opt.sessionoptions:get() },
-  -- -- stylua: ignore
-  -- keys = {
-  --     { "<leader>qs", function() require("persistence").load() end, desc = "Restore Session" },
-  --     { "<leader>ql", function() require("persistence").load({ last = true }) end, desc = "Restore Last Session" },
-  --     { "<leader>qd", function() require("persistence").stop() end, desc = "Don't Save Current Session" },
-  --   },
-  -- },
 
   {
     'folke/noice.nvim',
