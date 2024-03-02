@@ -275,16 +275,17 @@ require('lazy').setup {
 
       -- Document existing key chains
       require('which-key').register {
-        ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-        ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
-        ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-        ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-        ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-        ['<leader>b'] = { name = '[B]uffer', _ = 'which_key_ignore' },
-        ['<leader>f'] = { name = '[F]ile', _ = 'which_key_ignore' },
-        ['<leader>p'] = { name = '[P]roject', _ = 'which_key_ignore' },
-        ['<leader>q'] = { name = '[Q]uit/sesson', _ = 'which_key_ignore' },
-        ['<leader>t'] = { name = '[T]oggles', _ = 'which_key_ignore' },
+        ['<leader>c'] = { name = '[c]ode', _ = 'which_key_ignore' },
+        ['<leader>h'] = { name = '[h]elp', _ = 'which_key_ignore' },
+        ['<leader>d'] = { name = '[d]ocument', _ = 'which_key_ignore' },
+        ['<leader>r'] = { name = '[r]ename', _ = 'which_key_ignore' },
+        ['<leader>s'] = { name = '[s]earch', _ = 'which_key_ignore' },
+        ['<leader>w'] = { name = '[w]orkspace', _ = 'which_key_ignore' },
+        ['<leader>b'] = { name = '[b]uffer', _ = 'which_key_ignore' },
+        ['<leader>f'] = { name = '[f]ile', _ = 'which_key_ignore' },
+        ['<leader>p'] = { name = '[p]roject', _ = 'which_key_ignore' },
+        ['<leader>q'] = { name = '[q]uit/sesson', _ = 'which_key_ignore' },
+        ['<leader>t'] = { name = '[t]oggles', _ = 'which_key_ignore' },
       }
     end,
   },
@@ -367,16 +368,8 @@ require('lazy').setup {
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
-      vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
-      vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-      vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
-      vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-      vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-      vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
-      vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-      vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
       -- NOTE: AH: New additions
 
@@ -388,33 +381,57 @@ require('lazy').setup {
 
       -- Buffers
 
+      vim.keymap.set('n', '<leader>bp', '<cmd>bprevious<cr>', { desc = 'Previous buffer' })
+      vim.keymap.set('n', '<leader>bn', '<cmd>bnext<cr>', { desc = 'Next buffer' })
+      vim.keymap.set('n', '<leader>bl', builtin.buffers, { desc = 'List buffers' })
+      vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<cr>', { desc = 'Delete buffer' })
+      vim.keymap.set('n', '<leader>bs', '<cmd>w<cr>', { desc = 'Save buffer' })
+      vim.keymap.set('n', '<leader>bS', '<cmd>wa<cr>', { desc = 'Save all buffers' })
+      -- scratch buffer provide bu <leader>BX
+
+      -- Code
+      vim.keymap.set('n', '<leader>cd', builtin.diagnostics, { desc = 'Search diagnostics' })
+
       -- Files
       vim.keymap.set('n', '<leader>fr', builtin.oldfiles, { desc = 'Recent files' })
+
       -- Shortcut for searching your neovim configuration filesV
       vim.keymap.set('n', '<leader>fc', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = 'Configuration files' })
+      -- Neotree file explorer
+      vim.keymap.set('n', '<leader>fe', '<cmd>Neotree $HOME<cr>', { desc = 'Explorer Neotree (root)' })
+      vim.keymap.set('n', '<leader>fE', '<cmd>Neotree %:p:h<cr>', { desc = 'Explorer Neotree (local)' })
 
-      -- Toggles
-      vim.keymap.set('n', '<leader>te', '<cmd>Neotree toggle<cr>', { desc = 'Toggle Neotree' })
+      -- Help
+      vim.keymap.set('n', '<leader>hs', builtin.help_tags, { desc = 'Search' })
+      vim.keymap.set('n', '<leader>hk', builtin.keymaps, { desc = 'Keymaps' })
 
-      -- Slightly advanced example of overriding default behavior and theme
-      vim.keymap.set('n', '<leader>/', function()
+      -- Quit
+      vim.keymap.set('n', '<leader>qq', '<cmd>qa<cr>', { desc = 'Quit all' })
+
+      -- Search
+      vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = 'Live grep' })
+
+      vim.keymap.set('n', '<leader>sb', function()
         -- You can pass additional configuration to telescope to change theme, layout, etc.
         builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
           winblend = 10,
           previewer = false,
         })
-      end, { desc = '[/] Fuzzily search in current buffer' })
+      end, { desc = 'Search current buffer' })
 
       -- Also possible to pass additional configuration options.
       --  See `:help telescope.builtin.live_grep()` for information about particular keys
-      vim.keymap.set('n', '<leader>s/', function()
+      vim.keymap.set('n', '<leader>sB', function()
         builtin.live_grep {
           grep_open_files = true,
           prompt_title = 'Live Grep in Open Files',
         }
-      end, { desc = '[S]earch [/] in Open Files' })
+      end, { desc = 'Search all buffers' })
+
+      -- Toggles
+      vim.keymap.set('n', '<leader>te', '<cmd>Neotree toggle<cr>', { desc = 'Toggle Neotree' })
     end,
   },
 
@@ -746,7 +763,7 @@ require('lazy').setup {
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       -- Load the colorscheme here
-      vim.cmd.colorscheme 'tokyonight-night'
+      vim.cmd.colorscheme 'tokyonight-storm'
 
       -- You can configure highlights by doing something like
       vim.cmd.hi 'Comment gui=none'
@@ -759,6 +776,52 @@ require('lazy').setup {
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
     config = function()
+      -- -- reasonable defaults - might have problems with alternatives later on
+      require('mini.basics').setup {
+        -- Options. Set to `false` to disable.
+        options = {
+          -- Basic options ('number', 'ignorecase', and many more)
+          basic = true,
+
+          -- Extra UI features ('winblend', 'cmdheight=0', ...)
+          extra_ui = false,
+
+          -- Presets for window borders ('single', 'double', ...)
+          win_borders = 'default',
+        },
+
+        -- Mappings. Set to `false` to disable.
+        mappings = {
+          -- Basic mappings (better 'jk', save with Ctrl+S, ...)
+          basic = true,
+
+          -- Prefix for mappings that toggle common options ('wrap', 'spell', ...).
+          -- Supply empty string to not create these mappings.
+          option_toggle_prefix = [[|]],
+
+          -- Window navigation with <C-hjkl>, resize with <C-arrow>
+          windows = false,
+
+          -- Move cursor in Insert, Command, and Terminal mode with <M-hjkl>
+          move_with_alt = false,
+        },
+
+        -- Autocommands. Set to `false` to disable
+        autocommands = {
+          -- Basic autocommands (highlight on yank, start Insert in terminal, ...)
+          basic = true,
+
+          -- Set 'relativenumber' only in linewise and blockwise Visual mode
+          relnum_in_visual_mode = false,
+        },
+
+        -- Whether to disable showing non-error feedback
+        silent = false,
+      }
+
+      -- sensible movement keys
+      require('mini.move').setup()
+
       -- Better Around/Inside textobjects
       --
       -- Examples:
@@ -772,11 +835,11 @@ require('lazy').setup {
       -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
-      require('mini.surround').setup()
-
-      -- Simple and easy statusline.
-      --  You could remove this setup call if you don't like it,
-      --  and try some other statusline plugin
+      -- require('mini.surround').setup()
+      --
+      -- -- Simple and easy statusline.
+      -- --  You could remove this setup call if you don't like it,
+      -- --  and try some other statusline plugin
       local statusline = require 'mini.statusline'
       statusline.setup()
 
@@ -787,7 +850,7 @@ require('lazy').setup {
       statusline.section_location = function()
         return ''
       end
-
+      --
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
@@ -804,7 +867,11 @@ require('lazy').setup {
         ensure_installed = { 'bash', 'c', 'html', 'lua', 'markdown', 'vim', 'vimdoc' },
         -- Autoinstall languages that are not installed
         auto_install = true,
-        highlight = { enable = true },
+        highlight = {
+          enable = true,
+          -- additional_vim_regex_highlighting = false
+          additional_vim_regex_highlighting = { 'markdown' },
+        },
         indent = { enable = true },
       }
 
@@ -814,6 +881,39 @@ require('lazy').setup {
       --    - Incremental selection: Included, see :help nvim-treesitter-incremental-selection-mod
       --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
       --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+    end,
+  },
+
+  -- Active indent guide and indent text objects. When you're browsing
+  -- code, this highlights the current level of indentation, and animates
+  -- the highlighting.
+  {
+    'echasnovski/mini.indentscope',
+    --   version = false, -- wait till new 0.7.0 release to put it back on semver
+    opts = {
+      -- symbol = "▏",
+      symbol = '│',
+      options = { try_as_border = true },
+    },
+    init = function()
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = {
+          'help',
+          'alpha',
+          'Starter',
+          'dashboard',
+          'neo-tree',
+          'Trouble',
+          'trouble',
+          'lazy',
+          'mason',
+          'notify',
+          'toggleterm',
+        },
+        callback = function()
+          vim.b.miniindentscope_disable = true
+        end,
+      })
     end,
   },
 
