@@ -153,6 +153,9 @@ vim.opt.scrolloff = 10
 vim.opt.spelllang = 'en_gb'
 vim.opt.spell = true
 
+-- font
+vim.opt.guifont = 'FiraCode Nerd Font:h12'
+
 -- floaterm
 
 vim.g.floaterm_width = 0.95
@@ -406,10 +409,6 @@ require('lazy').setup {
       -- git
 
       vim.keymap.set('n', '<leader>gg', '<cmd>FloatermNew lazygit<cr>', { desc = 'Lazygit' })
-
-      -- lazygit
-      -- map("n", "<leader>gg", function() Util.terminal({ "lazygit" }, { cwd = Util.root(), esc_esc = false, ctrl_hjkl = false }) end, { desc = "Lazygit (root dir)" })
-      -- map("n", "<leader>gG", function() Util.terminal({ "lazygit" }, {esc_esc = false, ctrl_hjkl = false}) end, { desc = "Lazygit (cwd)" })
 
       -- Shortcut for searching your neovim configuration filesV
       vim.keymap.set('n', '<leader>fc', function()
