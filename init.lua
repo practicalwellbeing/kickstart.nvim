@@ -153,6 +153,11 @@ vim.opt.scrolloff = 10
 vim.opt.spelllang = 'en_gb'
 vim.opt.spell = true
 
+-- floaterm
+
+vim.g.floaterm_width = 0.95
+vim.g.floaterm_height = 0.95
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
