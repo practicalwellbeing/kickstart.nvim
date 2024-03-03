@@ -4,6 +4,11 @@
 -- See the kickstart.nvim README for more information
 
 return {
+
+  {
+    'voldikss/vim-floaterm',
+  },
+
   {
     'lewis6991/gitsigns.nvim',
 
