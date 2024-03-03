@@ -3,6 +3,28 @@
 return {
 
   {
+    'stevearc/aerial.nvim',
+    opts = {
+      layout = {
+        max_width = 0.4,
+        min_width = 0.2,
+      },
+    },
+    -- Optional dependencies
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-tree/nvim-web-devicons',
+    },
+    keys = {
+      {
+        '<leader>ta',
+        '<cmd>AerialToggle!<cr>', -- ! forces cursor to stay in original window
+        desc = 'Toggle Aerial',
+      },
+    },
+  },
+
+  {
     -- https://github.com/ixru/nvim-markdown
     'ixru/nvim-markdown',
     -- need to add some keymaps here
@@ -106,7 +128,7 @@ return {
     enabled = true,
     lazy = false,
     keys = {
-      { '<leader>mt', '<cmd>MarkdownPreviewToggle<cr>', desc = 'Markdown Toggle Preview' },
+      { '<leader>tm', '<cmd>MarkdownPreviewToggle<cr>', desc = 'Toggle Markdown Preview' },
       { '<leader>mp', '<cmd>MarkdownPreview<cr>', desc = 'Markdown Preview' },
       { '<leader>ms', '<cmd>MarkdownPreviewStop<cr>', desc = 'Markdown Stop Preview' },
     },
