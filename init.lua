@@ -469,7 +469,7 @@ require('lazy').setup {
 
       -- Workspace
       vim.keymap.set('n', '<leader>wf', '<cmd>Telescope neovim-project discover<cr>', { desc = 'Find workspace' })
-      vim.keymap.set('n', '<leader>w,', '<cmd>Telescope neovim-project history<cr>', { desc = 'Workspace history' })
+      vim.keymap.set('n', '<leader>w,', '<cmd>Telescope neovim-project history<cr>', { desc = 'Switch workspaces' })
       vim.keymap.set('n', '<leader>wr', '<cmd>NeovimProjectLoadRecent<cr>', { desc = 'Load last workspace' })
     end,
   },
