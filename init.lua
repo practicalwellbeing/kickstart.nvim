@@ -153,6 +153,9 @@ vim.opt.scrolloff = 10
 vim.opt.spelllang = 'en_gb'
 vim.opt.spell = true
 
+-- font
+vim.opt.guifont = 'FiraCode Nerd Font:h12'
+
 -- floaterm
 -- dimensions between 0.0 - 1.0
 vim.g.floaterm_width = 0.9
@@ -298,17 +301,16 @@ require('lazy').setup {
 
       -- Document existing key chains
       require('which-key').register {
-        ['<leader>b'] = { name = '[b]uffer', _ = 'which_key_ignore' },
-        ['<leader>c'] = { name = '[c]ode', _ = 'which_key_ignore' },
-        ['<leader>f'] = { name = '[f]ile', _ = 'which_key_ignore' },
-        ['<leader>g'] = { name = '[g]it', _ = 'which_key_ignore' },
-        ['<leader>h'] = { name = '[h]elp', _ = 'which_key_ignore' },
-        ['<leader>m'] = { name = '[m]arkdown', _ = 'which_key_ignore' },
-        ['<leader>q'] = { name = '[q]uit', _ = 'which_key_ignore' },
-        ['<leader>r'] = { name = '[r]ename', _ = 'which_key_ignore' },
-        ['<leader>s'] = { name = '[s]earch', _ = 'which_key_ignore' },
-        ['<leader>t'] = { name = '[t]oggles', _ = 'which_key_ignore' },
-        ['<leader>w'] = { name = '[w]orkspace', _ = 'which_key_ignore' },
+        ['<leader>b'] = { name = 'buffer', _ = 'which_key_ignore' },
+        ['<leader>c'] = { name = 'code', _ = 'which_key_ignore' },
+        ['<leader>f'] = { name = 'file', _ = 'which_key_ignore' },
+        ['<leader>g'] = { name = 'git', _ = 'which_key_ignore' },
+        ['<leader>h'] = { name = 'help', _ = 'which_key_ignore' },
+        ['<leader>q'] = { name = 'quit', _ = 'which_key_ignore' },
+        ['<leader>r'] = { name = 'rename', _ = 'which_key_ignore' },
+        ['<leader>s'] = { name = 'search', _ = 'which_key_ignore' },
+        ['<leader>t'] = { name = 'toggles', _ = 'which_key_ignore' },
+        ['<leader>w'] = { name = 'workspace', _ = 'which_key_ignore' },
       }
     end,
   },
@@ -420,10 +422,6 @@ require('lazy').setup {
       -- git
 
       vim.keymap.set('n', '<leader>gg', '<cmd>FloatermNew lazygit<cr>', { desc = 'Lazygit' })
-
-      -- lazygit
-      -- map("n", "<leader>gg", function() Util.terminal({ "lazygit" }, { cwd = Util.root(), esc_esc = false, ctrl_hjkl = false }) end, { desc = "Lazygit (root dir)" })
-      -- map("n", "<leader>gG", function() Util.terminal({ "lazygit" }, {esc_esc = false, ctrl_hjkl = false}) end, { desc = "Lazygit (cwd)" })
 
       -- Shortcut for searching your neovim configuration filesV
       vim.keymap.set('n', '<leader>fc', function()
