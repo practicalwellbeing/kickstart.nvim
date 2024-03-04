@@ -154,10 +154,23 @@ vim.opt.spelllang = 'en_gb'
 vim.opt.spell = true
 
 -- floaterm
+-- dimensions between 0.0 - 1.0
+vim.g.floaterm_width = 0.9
+vim.g.floaterm_height = 0.9
 
-vim.g.floaterm_width = 0.95
-vim.g.floaterm_height = 0.95
-
+-- -- -- setup pencil running in markdownv
+-- local group = vim.api.nvim_create_augroup('pencil', { clear = true })
+--
+-- vim.api.nvim_create_autocmd('FileType', {
+--   group = group,
+--   pattern = { 'markdown', 'text' },
+--   callback = 'pencil#init()',
+--   --   callback = function()
+--   -- --    print 'this is markdown'
+--   --     vim.cmd('SoftPencil')
+--   --   end,
+-- })
+--
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
@@ -290,6 +303,7 @@ require('lazy').setup {
         ['<leader>f'] = { name = '[f]ile', _ = 'which_key_ignore' },
         ['<leader>g'] = { name = '[g]it', _ = 'which_key_ignore' },
         ['<leader>h'] = { name = '[h]elp', _ = 'which_key_ignore' },
+        ['<leader>m'] = { name = '[m]arkdown', _ = 'which_key_ignore' },
         ['<leader>q'] = { name = '[q]uit', _ = 'which_key_ignore' },
         ['<leader>r'] = { name = '[r]ename', _ = 'which_key_ignore' },
         ['<leader>s'] = { name = '[s]earch', _ = 'which_key_ignore' },
@@ -458,7 +472,7 @@ require('lazy').setup {
       -- Workspace
       vim.keymap.set('n', '<leader>wf', '<cmd>Telescope neovim-project discover<cr>', { desc = 'Find workspace' })
       vim.keymap.set('n', '<leader>wh', '<cmd>Telescope neovim-project history<cr>', { desc = 'Workspace history' })
-      vim.keymap.set('n', '<leader>wl', '<cmd>Telescope neovim-project discover<cr>', { desc = 'Load last workspace' })
+      vim.keymap.set('n', '<leader>wl', '<cmd>NeovimProjectLoadRecent<cr>', { desc = 'Load previous workspace' })
     end,
   },
 
