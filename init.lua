@@ -161,18 +161,6 @@ vim.opt.guifont = 'FiraCode Nerd Font:h12'
 vim.g.floaterm_width = 0.9
 vim.g.floaterm_height = 0.9
 
--- -- -- setup pencil running in markdownv
--- local group = vim.api.nvim_create_augroup('pencil', { clear = true })
---
--- vim.api.nvim_create_autocmd('FileType', {
---   group = group,
---   pattern = { 'markdown', 'text' },
---   callback = 'pencil#init()',
---   --   callback = function()
---   -- --    print 'this is markdown'
---   --     vim.cmd('SoftPencil')
---   --   end,
--- })
 --
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
@@ -223,6 +211,24 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+-- -- -- -- setup pencil running in markdownv
+-- -- local group = --
+-- vim.api.nvim_create_autocmd('FileType', {
+--   group = vim.api.nvim_create_augroup('pencil', { clear = true }),
+--   pattern = { 'markdown', 'text' },
+--   callback = function()
+--     vim.cmd 'SoftPencil'
+--   end,
+-- })
+
+-- vim.cmd [[
+-- augroup pencil
+--   autocmd!
+--   autocmd FileType markdown call pencil#init()
+--   autocmd FileType text     call pencil#init()
+-- augroup END
+-- ]]
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
@@ -296,6 +302,12 @@ require('lazy').setup {
   { -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VeryLazy', -- Sets the loading event to 'VeryLazy'
+
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 500 -- half a second before the panel shows itself
+    end,
+
     config = function() -- This is the function that runs, AFTER loading
       require('which-key').setup()
 

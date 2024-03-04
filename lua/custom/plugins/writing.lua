@@ -30,7 +30,7 @@ return {
     -- need to add some keymaps here
   },
 
-  -- soft pencil for word wrapping etc
+  --  soft pencil for word wrapping etc
   {
     'preservim/vim-pencil',
     ft = { 'markdown' },
@@ -46,6 +46,22 @@ return {
       },
     },
   },
+
+  -- {
+  --   'preservim/vim-pencil',
+  --   config = function()
+  --     vim.g['pencil#autoformat'] = 1
+  --     vim.g['pencil#textwidth'] = 100
+  --     vim.g['pencil#wrapModeDefault'] = 'soft'
+  --     vim.fn['pencil#init'] { wrap = 'soft' }
+  --     print 'markdown file'
+  --   end,
+  --   ft = {
+  --     'md',
+  --     'markdown',
+  --     'txt',
+  --   },
+  -- },
 
   {
     'folke/zen-mode.nvim',
