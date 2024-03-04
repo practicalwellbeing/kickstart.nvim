@@ -469,8 +469,8 @@ require('lazy').setup {
 
       -- Workspace
       vim.keymap.set('n', '<leader>wf', '<cmd>Telescope neovim-project discover<cr>', { desc = 'Find workspace' })
-      vim.keymap.set('n', '<leader>wh', '<cmd>Telescope neovim-project history<cr>', { desc = 'Workspace history' })
-      vim.keymap.set('n', '<leader>wl', '<cmd>NeovimProjectLoadRecent<cr>', { desc = 'Load previous workspace' })
+      vim.keymap.set('n', '<leader>w,', '<cmd>Telescope neovim-project history<cr>', { desc = 'Workspace history' })
+      vim.keymap.set('n', '<leader>wr', '<cmd>NeovimProjectLoadRecent<cr>', { desc = 'Load last workspace' })
     end,
   },
 
@@ -810,6 +810,13 @@ require('lazy').setup {
       -- You can configure highlights by doing something like
       vim.cmd.hi 'Comment gui=none'
     end,
+  },
+
+  -- other themes
+  {
+    'navarasu/onedark.nvim',
+    'gbprod/nord.nvim',
+    'catppuccin/nvim',
   },
 
   -- Highlight todo, notes, etc in comments
