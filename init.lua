@@ -212,24 +212,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
--- -- -- -- setup pencil running in markdownv
--- -- local group = --
--- vim.api.nvim_create_autocmd('FileType', {
---   group = vim.api.nvim_create_augroup('pencil', { clear = true }),
---   pattern = { 'markdown', 'text' },
---   callback = function()
---     vim.cmd 'SoftPencil'
---   end,
--- })
-
--- vim.cmd [[
--- augroup pencil
---   autocmd!
---   autocmd FileType markdown call pencil#init()
---   autocmd FileType text     call pencil#init()
--- augroup END
--- ]]
-
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -478,6 +460,7 @@ require('lazy').setup {
       -- Toggles
       vim.keymap.set('n', '<leader>te', '<cmd>Neotree toggle<cr>', { desc = 'Toggle Neotree' })
       vim.keymap.set('n', '<leader>tg', '<cmd>Gitsigns toggle_signs<cr>', { desc = 'Toggle Gitsigns' })
+      vim.keymap.set('n', '<leader>ts', '<cmd>SoftWrapMode<cr>', { desc = 'SoftWrapMode' })
 
       -- Workspace
       vim.keymap.set('n', '<leader>wf', '<cmd>Telescope neovim-project discover<cr>', { desc = 'Find workspace' })

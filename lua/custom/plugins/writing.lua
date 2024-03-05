@@ -30,38 +30,17 @@ return {
     -- need to add some keymaps here
   },
 
-  --  soft pencil for word wrapping etc
+  -- nvim alternative to Pencil
+  --https://github.com/andrewferrier/wrapping.nvim
   {
-    'preservim/vim-pencil',
-    ft = { 'markdown' },
-    lazy = true,
-    init = function()
-      vim.g['pencil#wrapModeDefault'] = 'soft'
+    'andrewferrier/wrapping.nvim',
+    opts = {},
+    config = function()
+      require('wrapping').setup {
+        softener = { markdown = true },
+      }
     end,
-    keys = {
-      {
-        '<leader>tp',
-        '<cmd>TogglePencil<cr>',
-        desc = 'Toggle SoftPencil',
-      },
-    },
   },
-
-  -- {
-  --   'preservim/vim-pencil',
-  --   config = function()
-  --     vim.g['pencil#autoformat'] = 1
-  --     vim.g['pencil#textwidth'] = 100
-  --     vim.g['pencil#wrapModeDefault'] = 'soft'
-  --     vim.fn['pencil#init'] { wrap = 'soft' }
-  --     print 'markdown file'
-  --   end,
-  --   ft = {
-  --     'md',
-  --     'markdown',
-  --     'txt',
-  --   },
-  -- },
 
   {
     'folke/zen-mode.nvim',
