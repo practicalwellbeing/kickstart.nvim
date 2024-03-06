@@ -395,6 +395,7 @@ require('lazy').setup {
       vim.keymap.set('n', '<leader>,', builtin.buffers, { desc = 'Switch buffer' })
       vim.keymap.set('n', '<leader>!', builtin.builtin, { desc = 'Telescope' })
       vim.keymap.set('n', '<leader>e', '<cmd>Neotree toggle<cr>', { desc = 'Toggle Neotree' })
+      vim.keymap.set('n', '<leader>l', '<cmd>Lazy<cr>', { desc = 'Lazy' })
 
       -- Buffers
 
