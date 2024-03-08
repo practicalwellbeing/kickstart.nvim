@@ -952,6 +952,7 @@ require('lazy').setup {
           'trouble',
           'lazy',
           'mason',
+          'markdown', -- turn off for markdown files
           'notify',
           'toggleterm',
         },
