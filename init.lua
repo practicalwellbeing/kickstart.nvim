@@ -820,6 +820,7 @@ require('lazy').setup {
     'navarasu/onedark.nvim',
     'gbprod/nord.nvim',
     'catppuccin/nvim',
+    'rmehri01/onenord.nvim',
   },
 
   -- Highlight todo, notes, etc in comments
