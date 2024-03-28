@@ -61,6 +61,23 @@ return {
   },
 
   {
+    'MeanderingProgrammer/markdown.nvim',
+    name = 'render-markdown', -- Only needed if you have another plugin named markdown.nvim
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+
+    keys = {
+      {
+        '<leader>tr',
+        '<cmd>RenderMarkdowToggle<cr>', -- ! forces cursor to stay in original window
+        desc = 'Toggle RenderMarkdown',
+      },
+    },
+    config = function()
+      require('render-markdown').setup {}
+    end,
+  },
+
+  {
     -- https://github.com/ixru/nvim-markdown
     'ixru/nvim-markdown',
     -- need to add some keymaps here
