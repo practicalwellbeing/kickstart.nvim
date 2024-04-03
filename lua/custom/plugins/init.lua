@@ -48,6 +48,37 @@ return {
     end,
   },
 
+  -- {
+  --   "dhananjaylatkar/notes.nvim",
+  --   dependencies = {
+  --     "nvim-telescope/telescope.nvim"
+  --   },
+  --   opts = {
+  --     -- USE EMPTY FOR DEFAULT OPTIONS
+  --    -- DEFAULTS ARE LISTED BELOW
+  --     root = os.getenv("HOME") .. "/pCloudDrive/pCloudSync",
+  --   },
+  -- },
+
+  -- {
+  --   'serenevoid/kiwi.nvim',
+  --   dependencies = {
+  --     'nvim-lua/plenary.nvim',
+  --   },
+  --   opts = {
+  --     {
+  --       name = 'work',
+  --       path = '/home/andy/pCloudDrive/pCloudSync/wiki',
+  --     },
+  --   },
+  --   keys = {
+  --     { '<leader>ww', ':lua require("kiwi").open_wiki_index()<cr>', desc = 'Open Wiki index' },
+  --     { '<leader>wp', ':lua require("kiwi").open_wiki_index("personal")<cr>', desc = 'Open index of personal wiki' },
+  --     { 'T', ':lua require("kiwi").todo.toggle()<cr>', desc = 'Toggle Markdown Task' },
+  --   },
+  --   lazy = true,
+  -- },
+
   {
     'coffebar/neovim-project',
     opts = {

@@ -307,11 +307,12 @@ require('lazy').setup {
         ['<leader>f'] = { name = 'file', _ = 'which_key_ignore' },
         ['<leader>g'] = { name = 'git', _ = 'which_key_ignore' },
         ['<leader>h'] = { name = 'help', _ = 'which_key_ignore' },
+        ['<leader>p'] = { name = 'projects', _ = 'which_key_ignore' },
         ['<leader>q'] = { name = 'quit', _ = 'which_key_ignore' },
         ['<leader>r'] = { name = 'rename', _ = 'which_key_ignore' },
         ['<leader>s'] = { name = 'search', _ = 'which_key_ignore' },
         ['<leader>t'] = { name = 'toggles', _ = 'which_key_ignore' },
-        ['<leader>w'] = { name = 'workspace', _ = 'which_key_ignore' },
+        ['<leader>w'] = { name = 'wiki', _ = 'which_key_ignore' },
       }
     end,
   },
@@ -471,9 +472,9 @@ require('lazy').setup {
       vim.keymap.set('n', '<leader>ts', '<cmd>SoftWrapMode<cr>', { desc = 'SoftWrapMode' })
 
       -- Workspace
-      vim.keymap.set('n', '<leader>wf', '<cmd>Telescope neovim-project discover<cr>', { desc = 'Find workspace' })
-      vim.keymap.set('n', '<leader>w,', '<cmd>Telescope neovim-project history<cr>', { desc = 'Switch workspaces' })
-      vim.keymap.set('n', '<leader>wr', '<cmd>NeovimProjectLoadRecent<cr>', { desc = 'Load last workspace' })
+      vim.keymap.set('n', '<leader>pf', '<cmd>Telescope neovim-project discover<cr>', { desc = 'Find project' })
+      vim.keymap.set('n', '<leader>p,', '<cmd>Telescope neovim-project history<cr>', { desc = 'Switch projects' })
+      vim.keymap.set('n', '<leader>pr', '<cmd>NeovimProjectLoadRecent<cr>', { desc = 'Load last project' })
     end,
   },
 

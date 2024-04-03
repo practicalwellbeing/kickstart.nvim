@@ -35,6 +35,23 @@ return {
   --
   --     -- see below for full list of options 👇
   --   },
+  --
+  --   note_id_func = function(title)
+  --     return tostring(title)
+  --   end,
+  -- },
+
+  -- {
+  --
+  --   'dhananjaylatkar/notes.nvim',
+  --   dependencies = {
+  --     'nvim-telescope/telescope.nvim',
+  --   },
+  --   opts = {
+  --     -- USE EMPTY FOR DEFAULT OPTIONS
+  --     -- DEFAULTS ARE LISTED BELOW
+  --     root = os.getenv 'HOME' .. '/pCloudDrive/pCloudSync/wiki/',
+  --   },
   -- },
 
   -- table of contents 'preview'
