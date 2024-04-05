@@ -115,6 +115,10 @@ return {
     -- need to add some keymaps here
   },
 
+  {
+    'vim-pandoc/vim-pandoc',
+  },
+
   -- nvim alternative to Pencil
   --https://github.com/andrewferrier/wrapping.nvim
   {

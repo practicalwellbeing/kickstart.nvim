@@ -440,6 +440,11 @@ require('lazy').setup {
       vim.keymap.set('n', '<leader>hh', '<cmd>help<cr>', { desc = 'Open help' })
       vim.keymap.set('n', '<leader>hq', '<cmd>helpc<cr>', { desc = 'Quit help' })
 
+      -- Projects
+      vim.keymap.set('n', '<leader>pf', '<cmd>Telescope neovim-project discover<cr>', { desc = 'Find project' })
+      vim.keymap.set('n', '<leader>p,', '<cmd>Telescope neovim-project history<cr>', { desc = 'Switch projects' })
+      vim.keymap.set('n', '<leader>pr', '<cmd>NeovimProjectLoadRecent<cr>', { desc = 'Load last project' })
+
       -- Quit
       vim.keymap.set('n', '<leader>qq', '<cmd>qa<cr>', { desc = 'Quit all' })
 
@@ -470,11 +475,6 @@ require('lazy').setup {
       vim.keymap.set('n', '<leader>te', '<cmd>Neotree toggle<cr>', { desc = 'Toggle Neotree' })
       vim.keymap.set('n', '<leader>tg', '<cmd>Gitsigns toggle_signs<cr>', { desc = 'Toggle Gitsigns' })
       vim.keymap.set('n', '<leader>ts', '<cmd>SoftWrapMode<cr>', { desc = 'SoftWrapMode' })
-
-      -- Workspace
-      vim.keymap.set('n', '<leader>pf', '<cmd>Telescope neovim-project discover<cr>', { desc = 'Find project' })
-      vim.keymap.set('n', '<leader>p,', '<cmd>Telescope neovim-project history<cr>', { desc = 'Switch projects' })
-      vim.keymap.set('n', '<leader>pr', '<cmd>NeovimProjectLoadRecent<cr>', { desc = 'Load last project' })
     end,
   },
 
