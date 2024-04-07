@@ -48,49 +48,18 @@ return {
     end,
   },
 
-  -- {
-  --   "dhananjaylatkar/notes.nvim",
-  --   dependencies = {
-  --     "nvim-telescope/telescope.nvim"
-  --   },
-  --   opts = {
-  --     -- USE EMPTY FOR DEFAULT OPTIONS
-  --    -- DEFAULTS ARE LISTED BELOW
-  --     root = os.getenv("HOME") .. "/pCloudDrive/pCloudSync",
-  --   },
-  -- },
-
-  -- {
-  --   'serenevoid/kiwi.nvim',
-  --   dependencies = {
-  --     'nvim-lua/plenary.nvim',
-  --   },
-  --   opts = {
-  --     {
-  --       name = 'work',
-  --       path = '/home/andy/pCloudDrive/pCloudSync/wiki',
-  --     },
-  --   },
-  --   keys = {
-  --     { '<leader>ww', ':lua require("kiwi").open_wiki_index()<cr>', desc = 'Open Wiki index' },
-  --     { '<leader>wp', ':lua require("kiwi").open_wiki_index("personal")<cr>', desc = 'Open index of personal wiki' },
-  --     { 'T', ':lua require("kiwi").todo.toggle()<cr>', desc = 'Toggle Markdown Task' },
-  --   },
-  --   lazy = true,
-  -- },
-
   {
     'coffebar/neovim-project',
     opts = {
       projects = { -- define project roots
         '~/git/*',
         '~/.config/*',
-        '~/Nextcloud/Notes*',
+        --       '~/Nextcloud/Notes*',
       },
       -- Load the most recent session on startup if not in the project directory
       last_session_on_startup = false,
       -- Dashboard mode prevent session autoload on startup
-      dashboard_mode = true,
+      dashboard_mode = false,
     },
     init = function()
       -- enable saving the state of plugins in the session
