@@ -212,8 +212,8 @@ return {
     enabled = true,
     lazy = false,
     keys = {
-      { '<leader>tm', '<cmd>MarkdownPreviewToggle<cr>', desc = 'Toggle Markdown Preview' },
-      { '<leader>mp', '<cmd>MarkdownPreview<cr>', desc = 'Markdown Preview' },
+      { '<leader>tv', '<cmd>MarkdownPreviewToggle<cr>', desc = 'Toggle Markdown preView' },
+      { '<leader>mv', '<cmd>MarkdownPreview<cr>', desc = 'Markdown preView' },
       { '<leader>ms', '<cmd>MarkdownPreviewStop<cr>', desc = 'Markdown Stop Preview' },
     },
     ft = { 'wiki', 'markdown', 'md', 'puml' },
