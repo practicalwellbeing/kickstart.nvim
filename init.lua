@@ -480,7 +480,8 @@ require('lazy').setup {
       -- Toggles
       vim.keymap.set('n', '<leader>te', '<cmd>Neotree toggle<cr>', { desc = 'Toggle Neotree' })
       vim.keymap.set('n', '<leader>tg', '<cmd>Gitsigns toggle_signs<cr>', { desc = 'Toggle Gitsigns' })
-      vim.keymap.set('n', '<leader>ts', '<cmd>SoftWrapMode<cr>', { desc = 'SoftWrapMode' })
+      vim.keymap.set('n', '<leader>ts', '<cmd>SoftWrapMode<cr>', { desc = 'Toggle SoftWrapMode' })
+      vim.keymap.set('n', '<leader>tt', '<cmd>TransparentToggle<cr>', { desc = 'ToggleTransparency' })
     end,
   },
 
@@ -805,22 +806,43 @@ require('lazy').setup {
     end,
   },
 
-  { -- You can easily change to a different colorscheme.
-    -- Change the name of the colorscheme plugin below, and then
-    -- change the command in the config to whatever the name of that colorscheme is
-    --
-    -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`
+  {
     'folke/tokyonight.nvim',
-    lazy = false, -- make sure we load this during startup if it is your main colorscheme
-    priority = 1000, -- make sure to load this before all the other start plugins
-    config = function()
-      -- Load the colorscheme here
-      vim.cmd.colorscheme 'tokyonight-storm'
-
-      -- You can configure highlights by doing something like
-      vim.cmd.hi 'Comment gui=none'
+    lazy = false,
+    priority = 1000,
+    opts = {
+      style = 'storm',
+      -- transparent = true,
+      -- styles = {
+      --   sidebars = 'transparent',
+      --   floats = 'transparent',
+      -- },
+    },
+    config = function(_, opts)
+      local tokyonight = require 'tokyonight'
+      tokyonight.setup(opts)
+      tokyonight.load()
     end,
   },
+  -- { -- You can easily change to a different colorscheme.
+  --   -- Change the name of the colorscheme plugin below, and then
+  --   -- change the command in the config to whatever the name of that colorscheme is
+  --   --
+  --   -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`
+  --   'folke/tokyonight.nvim',
+  --   lazy = false, -- make sure we load this during startup if it is your main colorscheme
+  --   priority = 1000, -- make sure to load this before all the other start plugins
+  --   opts = {
+  --     transparent = true,
+  --   },
+  --   config = function()
+  --     -- Load the colorscheme here
+  --     vim.cmd.colorscheme 'tokyonight-storm'
+  --
+  --     -- You can configure highlights by doing something like
+  --     vim.cmd.hi 'Comment gui=none'
+  --   end,
+  -- },
 
   -- other themes
   {
@@ -828,6 +850,11 @@ require('lazy').setup {
     'gbprod/nord.nvim',
     'catppuccin/nvim',
     'rmehri01/onenord.nvim',
+  },
+
+  -- make nvim transparent
+  {
+    'xiyaowong/transparent.nvim',
   },
 
   -- Highlight todo, notes, etc in comments
