@@ -442,9 +442,9 @@ require('lazy').setup {
 
       -- Pandoc
 
-      vim.keymap.set('n', '<leader>mw', '<cmd>FloatermNew pandoc %:p -o %:p:r.docx<cr>', { desc = 'md -> Word' })
-      vim.keymap.set('n', '<leader>mh', '<cmd>FloatermNew pandoc -s %:p -o %:p:r.html<cr>', { desc = 'md -> HTML' })
-      vim.keymap.set('n', '<leader>mp', '<cmd>FloatermNew pandoc %:p -o %:p:r.pdf<cr>', { desc = 'md -> PDF' })
+      vim.keymap.set('n', '<leader>mw', '<cmd>FloatermNew pandoc  %:p -o %:p:r.docx<cr>', { desc = 'Pandoc md -> Word' })
+      vim.keymap.set('n', '<leader>mh', '<cmd>FloatermNew pandoc -s %:p -o %:p:r.html<cr>', { desc = 'Pandoc md -> HTML' })
+      vim.keymap.set('n', '<leader>mp', '<cmd>FloatermNew pandoc %:p -o %:p:r.pdf<cr>', { desc = 'Pandoc md -> PDF' })
 
       -- Projects
       vim.keymap.set('n', '<leader>pf', '<cmd>Telescope neovim-project discover<cr>', { desc = 'Find project' })
