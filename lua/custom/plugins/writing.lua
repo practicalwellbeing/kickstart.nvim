@@ -1,22 +1,22 @@
 -- plugins to do with text writing
 
 return {
-  -- {
-  --   'nvim-treesitter/nvim-treesitter',
-  --   dependencies = { 'tadmccorkle/markdown.nvim' },
-  --   config = function()
-  --     require('nvim-treesitter.configs').setup {
-  --       ensure_installed = {
-  --         'markdown',
-  --         'markdown_inline', --[[ other parsers you need ]]
-  --       },
-  --       markdown = {
-  --         enable = true,
-  --         -- configuration here or nothing for defaults
-  --       },
-  --     }
-  --   end,
-  -- },
+  {
+    'nvim-treesitter/nvim-treesitter',
+    dependencies = { 'tadmccorkle/markdown.nvim' },
+    config = function()
+      require('nvim-treesitter.configs').setup {
+        ensure_installed = {
+          'markdown',
+          'markdown_inline', --[[ other parsers you need ]]
+        },
+        markdown = {
+          enable = true,
+          -- configuration here or nothing for defaults
+        },
+      }
+    end,
+  },
   -- disabled because of persistent 'timer' alerts
   -- {
   --   'epwalsh/obsidian.nvim',
@@ -109,11 +109,11 @@ return {
     end,
   },
 
-  {
-    -- https://github.com/ixru/nvim-markdown
-    'ixru/nvim-markdown',
-    -- need to add some keymaps here
-  },
+  -- {
+  --   -- https://github.com/ixru/nvim-markdown
+  --   'ixru/nvim-markdown',
+  --   -- need to add some keymaps here
+  -- },
 
   -- {
   --   'vim-pandoc/vim-pandoc',

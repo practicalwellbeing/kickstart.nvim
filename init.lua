@@ -168,6 +168,8 @@ vim.opt.guifont = 'FiraCode Nerd Font:h12'
 vim.g.floaterm_width = 0.9
 vim.g.floaterm_height = 0.9
 
+-- markdown folding
+vim.g.markdown_folding = 1
 --
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
@@ -307,12 +309,12 @@ require('lazy').setup {
         ['<leader>f'] = { name = 'file', _ = 'which_key_ignore' },
         ['<leader>g'] = { name = 'git', _ = 'which_key_ignore' },
         ['<leader>h'] = { name = 'help', _ = 'which_key_ignore' },
-        ['<leader>p'] = { name = 'projects', _ = 'which_key_ignore' },
+        ['<leader>p'] = { name = 'pandoc', _ = 'which_key_ignore' },
         ['<leader>q'] = { name = 'quit', _ = 'which_key_ignore' },
         ['<leader>r'] = { name = 'rename', _ = 'which_key_ignore' },
         ['<leader>s'] = { name = 'search', _ = 'which_key_ignore' },
         ['<leader>t'] = { name = 'toggles', _ = 'which_key_ignore' },
-        ['<leader>w'] = { name = 'wiki', _ = 'which_key_ignore' },
+        ['<leader>w'] = { name = 'workspace', _ = 'which_key_ignore' },
       }
     end,
   },
@@ -441,15 +443,9 @@ require('lazy').setup {
       vim.keymap.set('n', '<leader>hq', '<cmd>helpc<cr>', { desc = 'Quit help' })
 
       -- Pandoc
-
-      vim.keymap.set('n', '<leader>mw', '<cmd>FloatermNew pandoc  %:p -o %:p:r.docx<cr>', { desc = 'Pandoc md -> Word' })
-      vim.keymap.set('n', '<leader>mh', '<cmd>FloatermNew pandoc -s %:p -o %:p:r.html<cr>', { desc = 'Pandoc md -> HTML' })
-      vim.keymap.set('n', '<leader>mp', '<cmd>FloatermNew pandoc %:p -o %:p:r.pdf<cr>', { desc = 'Pandoc md -> PDF' })
-
-      -- Projects
-      vim.keymap.set('n', '<leader>pf', '<cmd>Telescope neovim-project discover<cr>', { desc = 'Find project' })
-      vim.keymap.set('n', '<leader>p,', '<cmd>Telescope neovim-project history<cr>', { desc = 'Switch projects' })
-      vim.keymap.set('n', '<leader>pr', '<cmd>NeovimProjectLoadRecent<cr>', { desc = 'Load last project' })
+      vim.keymap.set('n', '<leader>pw', '<cmd>FloatermNew pandoc  %:p -o %:p:r.docx<cr>', { desc = 'Pandoc md -> Word' })
+      vim.keymap.set('n', '<leader>ph', '<cmd>FloatermNew pandoc -s %:p -o %:p:r.html<cr>', { desc = 'Pandoc md -> HTML' })
+      vim.keymap.set('n', '<leader>pp', '<cmd>FloatermNew pandoc %:p -o %:p:r.pdf<cr>', { desc = 'Pandoc md -> PDF' })
 
       -- Quit
       vim.keymap.set('n', '<leader>qq', '<cmd>qa<cr>', { desc = 'Quit all' })
@@ -482,6 +478,11 @@ require('lazy').setup {
       vim.keymap.set('n', '<leader>tg', '<cmd>Gitsigns toggle_signs<cr>', { desc = 'Toggle Gitsigns' })
       vim.keymap.set('n', '<leader>ts', '<cmd>SoftWrapMode<cr>', { desc = 'Toggle SoftWrapMode' })
       vim.keymap.set('n', '<leader>tt', '<cmd>TransparentToggle<cr>', { desc = 'ToggleTransparency' })
+
+      -- Workspace
+      vim.keymap.set('n', '<leader>wf', '<cmd>Telescope neovim-project discover<cr>', { desc = 'Find workspace' })
+      vim.keymap.set('n', '<leader>w,', '<cmd>Telescope neovim-project history<cr>', { desc = 'Switch workspace' })
+      vim.keymap.set('n', '<leader>wr', '<cmd>NeovimProjectLoadRecent<cr>', { desc = 'Load last workspace' })
     end,
   },
 
