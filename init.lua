@@ -170,6 +170,9 @@ vim.g.floaterm_height = 0.9
 
 -- markdown folding
 vim.g.markdown_folding = 1
+-- start each file unfolded
+vim.o.foldenable = false
+
 --
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
@@ -309,6 +312,7 @@ require('lazy').setup {
         ['<leader>f'] = { name = 'file', _ = 'which_key_ignore' },
         ['<leader>g'] = { name = 'git', _ = 'which_key_ignore' },
         ['<leader>h'] = { name = 'help', _ = 'which_key_ignore' },
+        ['<leader>m'] = { name = 'markdown', _ = 'which_key_ignore' },
         ['<leader>p'] = { name = 'pandoc', _ = 'which_key_ignore' },
         ['<leader>q'] = { name = 'quit', _ = 'which_key_ignore' },
         ['<leader>r'] = { name = 'rename', _ = 'which_key_ignore' },
@@ -441,6 +445,9 @@ require('lazy').setup {
       vim.keymap.set('n', '<leader>hk', builtin.keymaps, { desc = 'Keymaps' })
       vim.keymap.set('n', '<leader>hh', '<cmd>help<cr>', { desc = 'Open help' })
       vim.keymap.set('n', '<leader>hq', '<cmd>helpc<cr>', { desc = 'Quit help' })
+
+      -- markdown
+      vim.keymap.set('n', '<leader>mx', '<cmd>MDTaskToggle<cr>', { desc = 'Toggle Task' })
 
       -- Pandoc
       vim.keymap.set('n', '<leader>pw', '<cmd>FloatermNew pandoc  %:p -o %:p:r.docx<cr>', { desc = 'Pandoc md -> Word' })
