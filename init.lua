@@ -172,6 +172,8 @@ vim.g.floaterm_height = 0.9
 vim.g.markdown_folding = 1
 -- start each file unfolded
 vim.o.foldenable = false
+-- hide syntax marks
+vim.opt.conceallevel = 2
 
 --
 -- [[ Basic Keymaps ]]
@@ -855,7 +857,7 @@ require('lazy').setup {
   -- other themes
   {
     'navarasu/onedark.nvim',
-    'gbprod/nord.nvim',
+    'shaunsingh/nord.nvim',
     'catppuccin/nvim',
     'rmehri01/onenord.nvim',
   },
